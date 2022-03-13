@@ -4,6 +4,7 @@ lon=[]
 latValue=[]
 lonValue=[]
 patientLocation=['28.5383','81.3792']
+d=[]
 a=57.29577951  #PI/180
 m=3963
 #d=ACOS( SIN(lat1*PI()/180)*SIN(lat2*PI()/180) + COS(lat1*PI()/180)*COS(lat2*PI()/180)
@@ -26,4 +27,10 @@ print(lon)
 print(latValue)
 print(lonValue)
 print(patientLocation[0])
+
+import math
+for i in range(0,4,1):
+    d.append(math.sqrt(float(float(patientLocation[0])-float(latValue[i]))**2)+float(float(patientLocation[1])-float(lonValue[i]))**2)
+print(d)
+
 

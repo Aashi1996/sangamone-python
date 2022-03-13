@@ -10,6 +10,9 @@ chem=[]
 chemToppers=[]
 bio=[]
 bioToppers=[]
+totalMarks=[]
+topper=[]
+
 f1=open("Marks.txt","r")
 for i in range(0,26,1):
     
@@ -42,40 +45,59 @@ print(maths)
 print(phy)
 print(chem)
 print(bio)
-maxEng=max(eng)
-maxMaths=max(maths)
-maxPhy=max(phy)
-maxChem=max(chem)
-maxBio=max(bio)
-print(maxEng)
-print(maxMaths)
-print(maxPhy)
-print(maxChem)
-print(maxBio)
+print()
+
+maxEng=max(int(i)for i in eng)
+maxMaths=max(int(i) for i in maths)
+maxPhy=max(int(i) for i in phy)
+maxChem=max(int(i) for i in chem)
+maxBio=max(int(i) for i in bio)
+print()
+
+print("Max of English Marks is:",maxEng)
+print("Max of Maths Marks is:",maxMaths)
+print("Max of Physics Marks is:",maxPhy)
+print("Max of Chemistry Marks is:",maxChem)
+print("Max of Biology Marks is:",maxBio)
+print()
 
 for i in range(0,26,1):
-    if eng[i]==maxEng:
+    if int(eng[i])==maxEng:
         engToppers.append(names[i])
 print(engToppers,"are the toppers in", subjects[0], "with marks of",maxEng)
 
 for i in range(0,26,1):
-    if maths[i]==maxMaths:
+    if int(maths[i])==maxMaths:
         mathsToppers.append(names[i])
 print(mathsToppers,"are the toppers in", subjects[1], "with marks of",maxMaths)
 
 for i in range(0,26,1):
-    if phy[i]==maxPhy:
+    if int(phy[i])==maxPhy:
         phyToppers.append(names[i])
 print(phyToppers,"are the toppers in", subjects[2], "with marks of",maxPhy)
 
 for i in range(0,26,1):
-    if chem[i]==maxChem:
+    if int(chem[i])==maxChem:
         chemToppers.append(names[i])
 print(chemToppers,"is the topper in", subjects[3], "with marks of",maxChem)
 
 for i in range(0,26,1):
-    if bio[i]==maxBio:
+    if int(bio[i])==maxBio:
         bioToppers.append(names[i])
-print(bioToppers,"is the topper in", subjects[4], "with marks of",maxBio)
+print(bioToppers,"are the toppers in", subjects[4], "with marks of",maxBio)
+print()
 
-x=sum(eng[0],maths[0])
+for i in range(0,26,1):
+    totalMarks.append(int(eng[i])+int(maths[i])+int(phy[i])+int(chem[i])+int(bio[i]))
+print(totalMarks)
+print()
+
+maxTotal=max(int(i) for i in totalMarks)
+print("Max of Total Marks is:",maxTotal)
+print()
+
+for i in range(0,26,1):
+    if int(totalMarks[i])==maxTotal:
+        topper.append(names[i])
+print(topper,"is the Gold Medalist with total marks of",maxTotal)
+
